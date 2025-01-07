@@ -6,13 +6,13 @@ import time
 import subprocess
 
 # PowerShell command to execute
-powershell_command = "CheckNetIsolation LoopbackExempt -a -n='Microsoft.MinecraftUWP_8wekyb3d8bbwe'"
+# powershell_command = "CheckNetIsolation LoopbackExempt -a -n='Microsoft.MinecraftUWP_8wekyb3d8bbwe'"
 
 # Run the PowerShell command
-result = subprocess.run(["powershell", "-Command", f"Start-Process powershell -Verb RunAs -ArgumentList '-Command', '{powershell_command}'"], capture_output=True, text=True)
+# result = subprocess.run(["powershell", "-Command", f"Start-Process powershell -Verb RunAs -ArgumentList '-Command', '{powershell_command}'"], capture_output=True, text=True)
 
 # Print the output
-print(result.stdout)
+# print(result.stdout)
 
 def download_file(url, destination):
     response = requests.get(url)
@@ -24,13 +24,13 @@ def download_file(url, destination):
     else:
         print(f"Failed to download the file '{url}'.")
 
-download_file("https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/126/downloads/paper-1.20.1-126.jar", "paper-1.20.1-126.jar")
+# download_file("https://api.papermc.io/v2/projects/paper/versions/1.21.3/builds/82/downloads/paper-1.21.3-82.jar", "build/paper.jar")
 
 
-server_jar = 'paper-1.20.1-126.jar'        # Replace with the path of the source file
+server_jar = 'paper.jar'        # Replace with the path of the source file
 
 
-#subprocess.run(['java', '-jar', server_jar, 'nogui'], check=True)
+# subprocess.run(['java', '-jar', server_jar, 'nogui'], check=True)
 
 # Abrir el archivo en modo lectura y escritura
 def replace(path,text,replace):
@@ -48,24 +48,24 @@ def replace(path,text,replace):
 
 
 
-replace('eula.txt','eula=false','eula=true')
+# replace('eula.txt','eula=false','eula=true')
 
 
 
-jar_process = subprocess.Popen(['java', '-jar', server_jar, 'nogui'])
-time.sleep(10)
-jar_process.terminate()
-jar_process.wait()
+# jar_process = subprocess.Popen(['java', '-jar', server_jar, 'nogui'])
+# time.sleep(10)
+# jar_process.terminate()
+# jar_process.wait()
 
 
-#download_file("https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot", "plugins/floodgate-spigot.jar")
-#download_file("https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot", "plugins/Geyser-Spigot.jar")
+# download_file("https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot", "plugins/floodgate-spigot.jar")
+# download_file("https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot", "plugins/Geyser-Spigot.jar")
+# download_file("https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.2.1/PAPER/ViaVersion-5.2.1.jar", "plugins/ViaVersion-5.2.1.jar")
 
-
-jar_process = subprocess.Popen(['java', '-jar', server_jar, 'nogui'])
-time.sleep(10)
-jar_process.terminate()
-jar_process.wait()
+# jar_process = subprocess.Popen(['java', '-jar', server_jar, 'nogui'])
+# time.sleep(10)
+# jar_process.terminate()
+# jar_process.wait()
 
 replace('server.properties','enforce-secure-profile=true','enforce-secure-profile=false')
 replace('plugins\Geyser-Spigot\config.yml','auth-type: online','auth-type: floodgate')
